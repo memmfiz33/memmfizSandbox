@@ -1,8 +1,14 @@
 import pytest
+import os
+import sys
 from selenium import webdriver
 
+project_root = os.path.abspath(os.path.dirname(__file__))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default=None,
+    parser.addoption('--language', action='store', default="en",
                       help="Choose language: en, ru, fr")
 
 @pytest.fixture(scope="function")
@@ -19,3 +25,4 @@ def browser(request):
     yield browser
     print("\nquit browser..")
     browser.quit()
+
