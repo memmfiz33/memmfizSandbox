@@ -4,8 +4,15 @@ class MainPageLocators:
     LOGIN_LINK = (By.ID, 'login_link')
 
 class LoginPageLocators:
-    EMAIL_INPUT_LOGIN = (By.ID, 'id_login-username')
-    PASSWORD_INPUT_LOGIN = (By.ID, 'id_login-password')
+    # login form
+    URL = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    EMAIL_INPUT_LOGIN = (By.CSS_SELECTOR, '#id_login-username')
+    PASSWORD_INPUT_LOGIN = (By.CSS_SELECTOR, '#id_login-password')
+
+    # registration form
+    EMAIL_INPUT_REGISTRATION = (By.CSS_SELECTOR, '#id_registration-email')
+    PASSWORD_INPUT_REGISTRATION = (By.CSS_SELECTOR, '#id_registration-password1')
+    PASSWORD_CONFIRMATION_REGISTRATION = (By.CSS_SELECTOR, '#id_registration-password2')
 
 
 
