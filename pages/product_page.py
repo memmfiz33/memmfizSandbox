@@ -39,10 +39,10 @@ class ProductPage(BasePage):
         message_name = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_NAME).text
         assert product_name == message_name, f'Product name does not match message name. EXPECTED: {message_name}, ACTUAL: {product_name}'
 
+
     def should_see_correct_price_for_basket(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
-        basket_price = self.browser.find_element(*ProductPageLocators.BASKET_ALERT)
+        basket_price = self.browser.find_element(*ProductPageLocators.BASKET_ALERT).text
         assert product_price == basket_price, f'Product price does not match basket price. EXPECTED: {product_price}, ACTUAL: {basket_price}'
-
 
 
