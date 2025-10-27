@@ -16,6 +16,13 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_BASKET_BTN = (By.CSS_SELECTOR, '.btn-add-to-basket')
+    PRODUCT_NAME  = (By.CSS_SELECTOR, ".product_main h1")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+    SUCCESS_MESSAGE_NAME = (By.CSS_SELECTOR, ".alert-success strong")
+    BASKET_ALERT = (By.CSS_SELECTOR, ".alert-info strong")
+
+
+    ## SECOND_SUCCESS_ALERT = (By.CSS_SELECTOR, "div.alert-success:has(strong:contains(\"The shellcoder's handbook\"))")
 
 
 
