@@ -15,6 +15,9 @@ class ProductPage(BasePage):
         self.should_see_success_message_with_correct_product_name()
         self.should_see_correct_price_for_basket()
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_ALERT)
+
     def click_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BTN), \
             "Add to basket button is not presented"
@@ -46,3 +49,6 @@ class ProductPage(BasePage):
         assert product_price == basket_price, f'Product price does not match basket price. EXPECTED: {product_price}, ACTUAL: {basket_price}'
 
 
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_ALERT)
+        
