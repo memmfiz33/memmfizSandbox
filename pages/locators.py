@@ -6,7 +6,7 @@ class MainPageLocators:
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, 'login_link_inc')
-    BASKET_LINK = (By.CSS_SELECTOR, 'a.btn.btn-default')
+    BASKET_LINK = (By.CSS_SELECTOR, 'span.btn-group > a.btn.btn-default')
 
 class LoginPageLocators:
     # login form
@@ -27,6 +27,10 @@ class ProductPageLocators:
     #alerts
     SUCCESS_MESSAGE_NAME = (By.CSS_SELECTOR, ".alert-success strong")
     BASKET_ALERT = (By.CSS_SELECTOR, ".alert-info strong")
+
+class BasketPageLocators:
+    EMPTY_STATE_TEXT = (By.CSS_SELECTOR, "#content_inner p")
+
 
 
 
