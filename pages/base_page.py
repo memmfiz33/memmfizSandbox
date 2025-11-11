@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.locators import LoginPageLocators, BasePageLocators
 
-
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -11,8 +10,10 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
-        link = (self.browser.find_element(*BasePageLocators.LOGIN_LINK))
+        from pages.login_page import LoginPage  # ✅ локальный импорт
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
+        return LoginPage(self.browser, self.browser.current_url)
 
     def go_to_basket_page(self):
         link = WebDriverWait(self.browser, 10).until(
@@ -49,4 +50,4 @@ class BasePage():
         self.browser.get(self.url)
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is not presented'
+        assert self.is_element_present(*BasePageLocators.REGISTRATION_LINK), 'Login link is not presented'

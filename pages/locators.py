@@ -5,7 +5,8 @@ class MainPageLocators:
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, 'login_link_inc')
+    REGISTRATION_LINK = (By.ID, '#registration_link')
+    # LOGIN_LINK_INVALID = (By.CSS_SELECTOR, 'login_link_inc')
     BASKET_LINK = (By.CSS_SELECTOR, 'span.btn-group > a.btn.btn-default')
 
 class LoginPageLocators:
