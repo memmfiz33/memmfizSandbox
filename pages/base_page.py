@@ -50,4 +50,7 @@ class BasePage():
         self.browser.get(self.url)
 
     def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is not presented'
+
+    def should_be_registration_link(self):
         assert self.is_element_present(*BasePageLocators.REGISTRATION_LINK), 'Login link is not presented'
