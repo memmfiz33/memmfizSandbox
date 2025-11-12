@@ -18,7 +18,7 @@ class TestLoginFromMainPage():
         link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
         page = MainPage(browser, link)
         page.open()
-        page.should_be_registration_link()
+        page.should_be_login_link()
 
     def test_guest_cant_see_product_in_basket_opened_from_main_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/"
