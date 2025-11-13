@@ -48,7 +48,5 @@ class ProductPage(BasePage):
         basket_price = self.browser.find_element(*ProductPageLocators.BASKET_ALERT).text
         assert product_price == basket_price, f'Product price does not match basket price. EXPECTED: {product_price}, ACTUAL: {basket_price}'
 
-
     def should_disappeared_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.BASKET_ALERT)
-        
