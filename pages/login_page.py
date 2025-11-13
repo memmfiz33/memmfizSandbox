@@ -38,19 +38,19 @@ class LoginPage(BasePage):
         wait = WebDriverWait(self.browser, 10)
 
         email_input = wait.until(EC.visibility_of_element_located(
-            *LoginPageLocators.EMAIL_INPUT_REGISTRATION))
+            LoginPageLocators.EMAIL_INPUT_REGISTRATION))
         email_input.send_keys(email)
 
         password_input = wait.until(EC.visibility_of_element_located(
-            *LoginPageLocators.PASSWORD_INPUT_REGISTRATION))
+            LoginPageLocators.PASSWORD_INPUT_REGISTRATION))
         password_input.send_keys(password)
 
         password_confirm_input = wait.until(EC.visibility_of_element_located(
-            *LoginPageLocators.PASSWORD_CONFIRMATION_REGISTRATION))
+            LoginPageLocators.PASSWORD_CONFIRMATION_REGISTRATION))
         password_confirm_input.send_keys(password)
 
         register_btn = wait.until(EC.element_to_be_clickable(
-            *LoginPageLocators.REGISTER_BUTTON))
+            LoginPageLocators.REGISTER_BUTTON))
         register_btn.click()
 
 
