@@ -4,13 +4,13 @@ from pages.product_page import ProductPage
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 
-product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-promo_urls = [f'{product_base_link}?promo=offer{i}' for i in range(10)]
+product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+promo_urls = [f'{product_link}?promo=offer{i}' for i in range(10)]
 full_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1"
 
 class TestGuestUserTestFromProductPage():
     @pytest.mark.need_review
-    @pytest.mark.parametrize('link', [full_link])
+    @pytest.mark.parametrize('link', [product_link])
     def test_guest_can_add_product_to_basket(self, browser, link):
         page = ProductPage(browser, link)
         page.open()
@@ -22,7 +22,7 @@ class TestGuestUserTestFromProductPage():
         page.open()
         page.should_be_product_page()
 
-    @pytest.mark.parametrize('link', [full_link])
+    @pytest.mark.parametrize('link', [product_link])
     def test_guest_cant_see_success_message1(self, browser, link):
         page = ProductPage(browser, link)
         page.open()
@@ -60,7 +60,7 @@ class TestGuestUserTestFromProductPage():
         page.should_disappeared_success_message()
 
     @pytest.mark.need_review
-    @pytest.mark.parametrize('link', [full_link])
+    @pytest.mark.parametrize('link', [product_link])
     def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser, link):
         product_page = ProductPage(browser, link)
         product_page.open()
@@ -69,6 +69,7 @@ class TestGuestUserTestFromProductPage():
         basket_page.should_be_empty_basket()
 
 class TestUserAddToBasketFromProductPage():
+    product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     full_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1"
 
     @pytest.fixture(autouse=True)
@@ -83,11 +84,11 @@ class TestUserAddToBasketFromProductPage():
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
-        page = ProductPage(browser, self.full_link)
+        page = ProductPage(browser, self.product_link)
         page.open()
         page.should_be_product_page()
 
     def test_user_cant_see_success_message1(self, browser):
-        page = ProductPage(browser, self.full_link)
+        page = ProductPage(browser, self.product_link)
         page.open()
         page.should_not_be_success_message()

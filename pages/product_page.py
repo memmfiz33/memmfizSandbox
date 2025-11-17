@@ -11,7 +11,6 @@ class ProductPage(BasePage):
 
     def should_be_product_page(self):
         self.click_add_to_basket_button()
-        self.solve_quiz_and_get_code()
         self.should_see_success_message_with_correct_product_name()
         self.should_see_correct_price_for_basket()
 
